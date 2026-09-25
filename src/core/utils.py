@@ -48,5 +48,5 @@ def compact_join(items: Iterable[str], sep: str = ", ") -> str:
 
 
 def first_sentence(text: str) -> str:
-    chunks = re.split(r"(?<=[.!?])\s+", normalize_whitespace(text))
-    return chunks[0] if chunks else normalize_whitespace(text)
+    chunks = re.split(r"(?<=[.!?])\s+", normalize_whitespace(str(text or "")))
+    return chunks[0] if chunks else normalize_whitespace(str(text or ""))

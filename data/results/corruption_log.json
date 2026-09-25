@@ -1,0 +1,59 @@
+{
+  "corruptions": [
+    {
+      "type": "drop_latest",
+      "count": 2,
+      "paper_ids": [
+        "10.21203/rs.3.rs-10489777/v1",
+        "10.70267/aitia.2026482489"
+      ]
+    },
+    {
+      "type": "blank_summary",
+      "count": 3,
+      "rows": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "type": "inject_noise",
+      "count": 3,
+      "rows": [
+        0,
+        4,
+        5
+      ]
+    },
+    {
+      "type": "truncate_title_30",
+      "count": 3,
+      "rows": [
+        0,
+        1,
+        6
+      ]
+    },
+    {
+      "type": "stale_date_2020",
+      "count": 8,
+      "rows": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "type": "duplicate_rows",
+      "count": 2
+    }
+  ],
+  "result_rows": 24,
+  "generated_at": "2026-09-25T08:59:29.409190+00:00"
+}

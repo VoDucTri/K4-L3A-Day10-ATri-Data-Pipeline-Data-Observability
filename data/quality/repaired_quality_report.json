@@ -1,0 +1,35 @@
+{
+  "report": "repaired_quality_report",
+  "rows": 24,
+  "success": true,
+  "checks": {
+    "row_count": {
+      "value": 24,
+      "pass": true,
+      "expect": "5 <= n <= 5000"
+    },
+    "paper_id_not_null": {
+      "nulls": 0,
+      "pass": true
+    },
+    "title_not_null": {
+      "nulls": 0,
+      "pass": true
+    },
+    "text_for_embedding_not_null": {
+      "nulls": 0,
+      "pass": true
+    },
+    "paper_id_unique": {
+      "duplicates": 0,
+      "pass": true
+    },
+    "summary_min_length_30": {
+      "too_short": 0,
+      "pass": true
+    }
+  },
+  "engine": "manual",
+  "gx_note": "GX skipped, manual used: No module named 'great_expectations'",
+  "generated_at": "2026-09-25T16:00:03.300100"
+}

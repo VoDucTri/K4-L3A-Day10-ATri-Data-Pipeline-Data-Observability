@@ -7,15 +7,16 @@ import sys
 import types
 from typing import Any
 
-from datasets import Dataset
+from typing import TYPE_CHECKING
 from pydantic import BaseModel, Field
 
 from core.config import Settings
 from core.utils import normalize_whitespace, read_json, write_json
-from retrieval.embeddings import MiniLMEmbeddings
-from retrieval.index import LocalEmbeddingIndex
 from retrieval.llm import build_llm
 from retrieval.qa import answer_question
+
+if TYPE_CHECKING:  # chi de type-check, tranh import nang luc runtime
+    from retrieval.index import LocalEmbeddingIndex
 
 
 class JudgeVerdict(BaseModel):
@@ -31,8 +32,8 @@ class EvaluationBundle:
 
 
 def _token_f1(reference: str, prediction: str) -> float:
-    ref_tokens = normalize_whitespace(reference).lower().split()
-    pred_tokens = normalize_whitespace(prediction).lower().split()
+    ref_tokens = normalize_whitespace(str(reference or "")).lower().split()
+    pred_tokens = normalize_whitespace(str(prediction or "")).lower().split()
     if not ref_tokens or not pred_tokens:
         return 0.0
     ref_set = set(ref_tokens)
@@ -80,6 +81,7 @@ def _run_ragas(settings: Settings, answers: list[dict[str, Any]]) -> dict[str, A
             sys.modules["langchain_community.chat_models.vertexai"] = shim
         from ragas import evaluate
         from ragas.metrics import answer_relevancy, context_precision, context_recall, faithfulness
+        from datasets import Dataset
 
         dataset = Dataset.from_dict(
             {
@@ -89,6 +91,8 @@ def _run_ragas(settings: Settings, answers: list[dict[str, Any]]) -> dict[str, A
                 "contexts": [item["retrieved_contexts"] for item in answers],
             }
         )
+        from retrieval.embeddings import MiniLMEmbeddings
+
         result = evaluate(
             dataset,
             metrics=[answer_relevancy, context_precision, context_recall, faithfulness],
