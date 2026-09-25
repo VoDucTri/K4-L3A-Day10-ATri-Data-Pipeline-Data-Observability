@@ -9,8 +9,8 @@
 | mean_judge_score | 4 | 3 | 4 |
 
 ## Quality gate
-- Corrupted: success=False engine=manual
-- Repaired: success=True engine=manual
+- Corrupted: success=False engine=great_expectations
+- Repaired: success=True engine=great_expectations
 
 ## Freshness
 - Corrupted: is_fresh=False stale=10/24

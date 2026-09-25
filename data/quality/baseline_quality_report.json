@@ -29,7 +29,26 @@
       "pass": true
     }
   },
-  "engine": "manual",
-  "gx_note": "GX skipped, manual used: No module named 'great_expectations'",
-  "generated_at": "2026-09-25T15:59:21.992053"
+  "engine": "great_expectations",
+  "gx_validations": [
+    {
+      "success": true
+    },
+    {
+      "success": true
+    },
+    {
+      "success": true
+    },
+    {
+      "success": true
+    },
+    {
+      "success": true
+    },
+    {
+      "success": true
+    }
+  ],
+  "generated_at": "2026-09-25T16:12:25.036519"
 }

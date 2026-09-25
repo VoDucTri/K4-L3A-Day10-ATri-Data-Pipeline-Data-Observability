@@ -20,7 +20,7 @@
 
 ## 3. Data Quality Gate
 - success: True
-- engine: manual
+- engine: great_expectations
 - rows: 24
 
 ## 4. Freshness
@@ -33,7 +33,7 @@
 | stale_rate | 0.0 |
 | threshold_days | 180 |
 | is_fresh | True |
-| generated_at | 2026-09-25T15:59:22.001591 |
+| generated_at | 2026-09-25T16:12:25.038596 |
 
 ## 5. Conclusion
 Baseline pipeline chay end-to-end: ingestion -> cleaning -> quality gate -> Chroma index -> evaluation.
