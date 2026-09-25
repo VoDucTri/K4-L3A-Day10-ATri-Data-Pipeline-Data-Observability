@@ -33,7 +33,7 @@
 | stale_rate | 0.0 |
 | threshold_days | 180 |
 | is_fresh | True |
-| generated_at | 2026-09-25T16:12:25.038596 |
+| generated_at | 2026-09-25T16:40:52.540504 |
 
 ## 5. Conclusion
 Baseline pipeline chay end-to-end: ingestion -> cleaning -> quality gate -> Chroma index -> evaluation.
